@@ -1,17 +1,22 @@
 import { createBrowserRouter } from "react-router-dom"
-import HomePage from "../pages/HomePage"
 import TablePage from "../pages/TablePage"
+import ClientSelectorPage from "../pages/ClientSelectorPage";
+import DashBoardPage from "../pages/DashBoardPage";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
-        element: <HomePage/>
+        element: <DashBoardPage/>
+    },
+    {
+        path:'/client',
+        element: <ClientSelectorPage/>
     },
     {
         path:'/table/:client',
         element: <TablePage/>
     }
-])
+    ])
 
 export default router;
