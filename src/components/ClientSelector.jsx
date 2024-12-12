@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material/styles';
 import { Box, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
-import React, { useState } from 'react'
+import { useState } from 'react';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -40,7 +40,7 @@ export default function ClientSelector() {
   const handleChange = (event) => {
     const { target: { value } } = event;
     setPersonName(value);
-    setOpen(false); // Close the select after making a selection
+    setOpen(false);
   };
 
   const handleOpen = () => {
@@ -58,8 +58,6 @@ export default function ClientSelector() {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      height: 'calc(100vh - 16px)', // Reduces height slightly to prevent scrollbar
-      width: 'calc(100vw - 16px)', // Reduces width slightly to prevent scrollbar
       overflow: 'hidden' // Prevents scrollbars on the box itself
     }}
     >

@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom"
-import TablePage from "../pages/TablePage"
-import ClientSelectorPage from "../pages/ClientSelectorPage";
+import LogHomePage from "../pages/LogHomePage";
 import DashBoardPage from "../pages/DashBoardPage";
+import LayoutPage from "../pages/LayoutPage";
+import PerformancePage from "../pages/PerformancePage";
 
 
 const router = createBrowserRouter([
@@ -10,13 +11,23 @@ const router = createBrowserRouter([
         element: <DashBoardPage/>
     },
     {
-        path:'/client',
-        element: <ClientSelectorPage/>
-    },
-    {
-        path:'/table/:client',
-        element: <TablePage/>
+        path: "/home",
+        element: <LayoutPage />, 
+        children: [
+            {
+                index: true,
+                element: <DashBoardPage />, 
+            },
+            {
+                path: "performance",
+                element: <PerformancePage />,
+            },
+            {
+                path: "log",
+                element: <LogHomePage />,
+            },
+        ],
     }
-    ])
+])
 
 export default router;
