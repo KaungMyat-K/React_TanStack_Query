@@ -98,8 +98,7 @@ export default function LogTable() {
                     style={{
                       minWidth: column.minWidth,
                       fontWeight: "bold",
-                      backgroundColor: "#c4c2c2",
-                      color: "#fff",
+                      backgroundColor: "#ededed",
                     }}
                   >
                     {column.label}

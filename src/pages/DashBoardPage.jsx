@@ -107,7 +107,7 @@ export default function DashBoardPage() {
           display: "flex",
           flexWrap: "wrap",
           gap: 3,
-          justifyContent: "flex-start",
+          justifyContent: "center",
         }}
       >
         {[1, 2, 3, 4, 5].map((num) => (

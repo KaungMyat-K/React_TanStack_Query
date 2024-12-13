@@ -3,12 +3,14 @@ import LogHomePage from "../pages/LogHomePage";
 import DashBoardPage from "../pages/DashBoardPage";
 import LayoutPage from "../pages/LayoutPage";
 import PerformancePage from "../pages/PerformancePage";
+import PerformanceDetailsPage from "../pages/PerformanceDetailsPage";
+import LogInPage from "../pages/LogInPage";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
-        element: <DashBoardPage/>
+        element: <LogInPage/>
     },
     {
         path: "/home",
@@ -25,6 +27,9 @@ const router = createBrowserRouter([
             {
                 path: "log",
                 element: <LogHomePage />,
+            },{
+                path: "performanceDetails",
+                element: <PerformanceDetailsPage />,
             },
         ],
     }

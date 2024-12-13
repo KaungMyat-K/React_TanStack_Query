@@ -19,6 +19,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { DocumentScannerOutlined, TextSnippetOutlined, TrendingUpOutlined } from '@mui/icons-material';
 
 const drawerWidth = 200;
 
@@ -99,6 +100,32 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     ],
   }),
 );
+const NavItem = ({ open, icon, label, onClick }) => (
+  <ListItem disablePadding sx={{ display: "block" }}>
+    <ListItemButton
+      sx={{
+        minHeight: 48,
+        px: 2.5,
+        justifyContent: open ? "initial" : "center",
+      }}
+      onClick={onClick}
+    >
+      <ListItemIcon
+        sx={{
+          minWidth: 0,
+          justifyContent: "center",
+          mr: open ? 3 : "auto",
+        }}
+      >
+        {icon}
+      </ListItemIcon>
+      <ListItemText
+        primary={label}
+        sx={{ opacity: open ? 1 : 0 }}
+      />
+    </ListItemButton>
+  </ListItem>
+);
 
 export default function LayoutPage() {
   const theme = useTheme();
@@ -121,7 +148,7 @@ export default function LayoutPage() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" marginLeft={3}>
+          <Typography variant="h6" noWrap component="div" marginLeft={3} sx={{cursor:'pointer'}} onClick={()=>{navigator("/home/")}}>
             MBC
           </Typography>
         </Toolbar>
@@ -134,105 +161,19 @@ export default function LayoutPage() {
         </DrawerHeader>
         <Divider />
         <List>
-            <ListItem  disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={[
-                  {
-                    minHeight: 48,
-                    px: 2.5,
-                  },
-                  open
-                    ? {
-                        justifyContent: 'initial',
-                      }
-                    : {
-                        justifyContent: 'center',
-                      },
-                ]}
-                onClick={()=>{navigator("/home/log")}}
-              >
-                <ListItemIcon
-                  sx={[
-                    {
-                      minWidth: 0,
-                      justifyContent: 'center',
-                    },
-                    open
-                      ? {
-                          mr: 3,
-                        }
-                      : {
-                          mr: 'auto',
-                        },
-                  ]}
-                  
-                >
-                 <InboxIcon /> 
-                </ListItemIcon>
-                <ListItemText
-                  primary={"Log"}
-                  sx={[
-                    open
-                      ? {
-                          opacity: 1,
-                        }
-                      : {
-                          opacity: 0,
-                        },
-                  ]}
-                />
-              </ListItemButton>
-            </ListItem>
-             <ListItem  disablePadding sx={{ display: 'block' }}>
-             <ListItemButton
-               sx={[
-                 {
-                   minHeight: 48,
-                   px: 2.5,
-                 },
-                 open
-                   ? {
-                       justifyContent: 'initial',
-                     }
-                   : {
-                       justifyContent: 'center',
-                     },
-               ]}
-               onClick={()=>{navigator("/home/performance")}}
-             >
-               <ListItemIcon
-                 sx={[
-                   {
-                     minWidth: 0,
-                     justifyContent: 'center',
-                   },
-                   open
-                     ? {
-                         mr: 3,
-                       }
-                     : {
-                         mr: 'auto',
-                       },
-                 ]}
-                 
-               >
-                  <MailIcon />
-               </ListItemIcon>
-               <ListItemText
-                 primary={"Performance"}
-                 sx={[
-                   open
-                     ? {
-                         opacity: 1,
-                       }
-                     : {
-                         opacity: 0,
-                       },
-                 ]}
-               />
-             </ListItemButton>
-           </ListItem>
-        </List>
+      <NavItem
+        open={open}
+        icon={<TextSnippetOutlined />}
+        label="Log"
+        onClick={() => navigator("/home/log")}
+      />
+      <NavItem
+        open={open}
+        icon={<TrendingUpOutlined />}
+        label="Performance"
+        onClick={() => navigator("/home/performance")}
+      />
+    </List>
         <Divider />
        
       </Drawer>
