@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import MemoryChart from "../components/MemoryChart";
 import CpuChart from "../components/CpuChart";
 import StorageChart from "../components/StorageChart";
+import PerformanceInfo from "../components/PerformanceInfo";
 
 export default function PerformanceDetailsPage() {
   return (
@@ -28,14 +29,15 @@ export default function PerformanceDetailsPage() {
           <Box
             sx={{
               width: "50%",
-              backgroundColor: "yellow",
+              height: 'auto',
               borderRadius: 2,
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
+              overflow: "hidden",
+              boxShadow:2
             }}
           >
-              <MemoryChart />    
+            <MemoryChart />    
           </Box>
           <Box sx={{
             width:'50%',
@@ -45,27 +47,35 @@ export default function PerformanceDetailsPage() {
           }}>
               <Box sx={{
                 width:"100%",
-                height:"50%",
-                backgroundColor:'blue',
-                borderRadius:2
+                height:"auto",
+                borderRadius:2,
+                boxShadow:2,
+                display: "flex",
+                flexDirection: "column",
+                overflow: "hidden"
               }}>
-              <CpuChart />        
+                <StorageChart />   
               </Box>
               <Box sx={{
                 width:"100%",
-                height:"50%",
-                backgroundColor:'pink',
-                borderRadius:2
+                height:"auto",
+                borderRadius:2,
+                boxShadow:2,
+                display:'flex',
+                justifyContent:'space-between'
               }}>
-              <StorageChart />
+              
+              <CpuChart /> 
               </Box>
           </Box>
         </Box>
         <Box sx={{
           width:"30%",
-          background:'red',
-          borderRadius:2
-        }}>2</Box>
+          borderRadius:2,
+          boxShadow:2
+        }}>
+          <PerformanceInfo/>
+        </Box>
       </Box>   
     </>
   )

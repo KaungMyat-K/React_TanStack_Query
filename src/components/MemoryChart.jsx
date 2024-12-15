@@ -43,7 +43,7 @@ export default function MemoryChart() {
               }}
             >
                 <GaugeContainer
-                width={200}
+                width={300}
                 height={200}
                 startAngle={-110}
                 endAngle={110}
@@ -53,7 +53,11 @@ export default function MemoryChart() {
                 <GaugeValueArc />
                 <GaugePointer />
                 </GaugeContainer>
-      </Box>
+            </Box>
+            <Box sx={{ margin:2,alignItems: 'center',display:'flex',justifyContent:'center'}}>
+              <Typography sx={{ margin: 0, fontWeight: "medium" }}>Usage 60% / 100%</Typography>
+            </Box>
+            
     </>
   )
 }
