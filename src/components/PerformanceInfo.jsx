@@ -13,7 +13,7 @@ export default function PerformanceInfo() {
       <Typography
         sx={{
           fontWeight: "bold",
-          marginBottom: 2,
+          marginBottom: 1,
           color: "#333",
         }}
       >
@@ -47,7 +47,7 @@ export default function PerformanceInfo() {
         {/* CPU Section */}
         <Typography
           variant="subtitle1"
-          sx={{ fontWeight: "Bold", marginTop: 2}}
+          sx={{ fontWeight: "Bold", marginTop: 1}}
         >
           CPU
         </Typography>

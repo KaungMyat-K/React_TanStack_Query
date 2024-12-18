@@ -16,17 +16,22 @@ export default function PerformanceDetailsPage() {
           Performance Details
         </Typography>
       <Box sx={{
-        display:"flex",
-        gap:2,
+        display:'flex',
+        gap:2
       }}>
-        
+        {/* left */}
         <Box sx={{
-          width:"70%",
-          display:'flex',
-          justifyContent:'space-between',
-          gap: 2,        
+           display:'flex',
+           width:"70%",
+           flexDirection:'column',
+           gap:2
         }}>
-          <Box
+          <Box sx={{
+            display:'flex',
+            justifyContent:'space-between',
+            gap: 2, 
+          }}>
+              <Box
             sx={{
               width: "50%",
               height: 'auto',
@@ -68,15 +73,26 @@ export default function PerformanceDetailsPage() {
               <CpuChart /> 
               </Box>
           </Box>
+          </Box>
+          <Box>
+              <Box sx={{
+                borderRadius:2,
+                boxShadow:2,
+                height:'137px'
+              }}>
+                Comming Soon ....
+              </Box>
+          </Box>
         </Box>
+        {/* rigth */}
         <Box sx={{
-          width:"30%",
-          borderRadius:2,
+           width:"30%",
+           borderRadius:2,
           boxShadow:2
         }}>
           <PerformanceInfo/>
         </Box>
-      </Box>   
+      </Box>
     </>
   )
 }
